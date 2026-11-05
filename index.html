@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ziad Barhoma</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #050505;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-area {
+    width: 100%;
+    max-width: 450px;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 16px;
+    background: white;
+    border: 2px solid red;
+    border-radius: 30px;
+    font-size: 18px;
+    outline: none;
+    text-align: right;
+}
+
+.result {
+    width: 100%;
+    max-width: 450px;
+    min-height: 190px;
+    background: white;
+    border: 3px solid red;
+    border-radius: 15px;
+    margin-top: 100px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: black;
+}
+
+.signature {
+    margin-top: 35px;
+    color: red;
+    font-size: 32px;
+    font-weight: bold;
+    direction: ltr;
+    text-shadow: 0 0 10px red;
+}
+</style>
+</head>
+
+<body>
+
+<div class="search-area">
+    <input
+        type="text"
+        id="search"
+        placeholder="Search Google..."
+        oninput="checkName()"
+    >
+</div>
+
+<div class="result" id="result">
+    Search for a name...
+</div>
+
+<div class="signature">
+    Ziad Barhoma
+</div>
+
+<script>
+
+const answers = {
+    "زياد": "عمك وعم المجال",
+    "سيف": "سواق  متهور",
+    "اياد": "ماشي يسطا حاضر",
+    "إياد": "ماشي يسطا حاضر",
+    "مصطفى": "زوبري منجه",
+    "مصطفي": "زوبري منجه",
+    "محمد": "هنيك المتناكه",
+    "الإيطالي": "زياد الإيطالي، كينج المجال",
+    "الايطالي": "زياد الإيطالي، كينج المجال",
+    "زياد الإيطالي": "كينج المجال",
+    "آدم": "نشتمك الكداب بامه",
+    "ادم": "نشتمك الكداب بامه",
+    "أحمد كرم": "يي ضاني باللحم الضاني",
+    "احمد كرم": "يي ضاني باللحم الضاني",
+    "ياسين كرم": "فلاح",
+    "مالك ٦": "كينج ٦ في المجال",
+    "مالك 6": "كينج ٦ في المجال",
+    "مالك ٧": "عجل مدهنن",
+    "مالك 7": "عجل مدهنن",
+    "آمر": "يا عمي يلعنك،"
+};
+
+function checkName() {
+    let name = document.getElementById("search").value.trim();
+    let result = document.getElementById("result");
+
+    if (name === "") {
+        result.innerText = "Search for a name...";
+    } 
+    else if (answers[name]) {
+        result.innerText = answers[name];
+    } 
+    else {
+        result.innerText = "الاسم مش موجود في قاعدة البيانات";
+    }
+}
+
+</script>
+
+</body>
+</html>
